@@ -36,8 +36,7 @@ def ask_question(message):
     user_data = user_progress[user_id]
     question_data = user_data['user_questions'][user_data['question_index']]
     options = question_data['options']
-    bot.send_message(message.chat.id, f"Запитання { \
-                     user_data['question_index']+1}:")
+    bot.send_message(message.chat.id, f"Запитання {user_data['question_index']+1}:")
 
     random.shuffle(options)
 
@@ -64,8 +63,7 @@ def handle_answer(message):
             bot.send_message(message.chat.id, "Правильно!")
             user_data['score'] += 1
         else:
-            bot.send_message(message.chat.id, f"Неправильно. Правильна відповідь: { \
-                             correct_answer}")
+            bot.send_message(message.chat.id, f"Неправильно. Правильна відповідь: {correct_answer}")
 
         user_data['answers'][question_data['question']] = message.text
 
